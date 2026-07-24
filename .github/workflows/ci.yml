@@ -25,5 +25,17 @@ jobs:
           path: deps
           key: ${{ runner.os }}-otp-26-elixir-1.15-${{ hashFiles('mix.lock') }}
 
-      - run: mix deps.get
-      - run: mix check
+      - name: Install dependencies
+        run: mix deps.get
+
+      - name: Check formatting
+        run: mix format --check-formatted
+
+      - name: Compile without warnings
+        run: mix compile --warnings-as-errors
+
+      - name: Lint
+        run: mix credo --strict
+
+      - name: Run tests with coverage
+        run: mix test --cover
