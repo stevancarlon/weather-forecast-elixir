@@ -90,6 +90,10 @@ mix test --cover
 mix check
 ```
 
+`mix check` verifies formatting, compiles with warnings treated as errors, runs
+Credo in strict mode, executes the complete test suite, and enforces test
+coverage.
+
 The test suite does not call Open-Meteo. The weather provider implements a
 behaviour and is replaced with deterministic test clients. Tests cover:
 

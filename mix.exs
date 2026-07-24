@@ -27,6 +27,7 @@ defmodule WeatherForecast.MixProject do
   defp deps do
     [
       {:bandit, "~> 1.12"},
+      {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:jason, "~> 1.4"},
       {:plug, "~> 1.20"},
       {:req, "~> 0.6"}
@@ -38,6 +39,7 @@ defmodule WeatherForecast.MixProject do
       check: [
         "format --check-formatted",
         "compile --warnings-as-errors",
+        "credo --strict",
         "test --cover"
       ]
     ]
