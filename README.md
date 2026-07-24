@@ -125,7 +125,7 @@ The API is deployed as a container-backed Vercel Function:
 - [`GET /health`](https://weather-forecast-elixir.vercel.app/health)
 
 An optional
-[interactive React demo](https://weather-forecast-frontend-black.vercel.app)
+[interactive React demo](https://forecast-parallel.vercel.app)
 consumes this API and visualizes the calculated results. The demo is hosted
 separately and is not part of the challenge repository or required solution.
 
