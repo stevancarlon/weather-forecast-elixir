@@ -39,3 +39,6 @@ jobs:
 
       - name: Run tests with coverage
         run: mix test --cover
+
+      - name: Build production image
+        run: docker build --tag weather-forecast-elixir:ci .

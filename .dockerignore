@@ -1,0 +1,10 @@
+.git
+.github
+.elixir_ls
+_build
+cover
+deps
+test
+tmp
+*.pdf
+README.md

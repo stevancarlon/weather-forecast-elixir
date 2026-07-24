@@ -27,6 +27,20 @@ defmodule WeatherForecast.RouterTest do
     end)
   end
 
+  test "GET / describes the available API endpoints" do
+    conn = Router.call(conn(:get, "/"), Router.init([]))
+
+    assert conn.status == 200
+
+    assert Jason.decode!(conn.resp_body) == %{
+             "name" => "Weather Forecast API",
+             "endpoints" => %{
+               "weather" => "/api/weather",
+               "health" => "/health"
+             }
+           }
+  end
+
   test "GET /health reports that the API is available" do
     conn = Router.call(conn(:get, "/health"), Router.init([]))
 

@@ -117,4 +117,21 @@ The HTTP server is disabled by default so it cannot interfere with the required
 terminal command (for example, when port 4000 is already occupied). Setting
 `START_SERVER=true` enables only the optional Postman interface.
 
+## Deploy to Render
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/stevancarlon/weather-forecast-elixir)
+
+The repository includes a multi-stage production `Dockerfile` and a
+`render.yaml` Blueprint. Render builds a self-contained Elixir release, checks
+`GET /health`, and deploys updates only after GitHub CI succeeds.
+
+To validate the production image locally:
+
+```bash
+docker build -t weather-forecast-elixir .
+docker run --rm -p 4000:4000 -e PORT=4000 weather-forecast-elixir
+```
+
+Then open `http://localhost:4000/api/weather`.
+
 Weather data is provided by [Open-Meteo](https://open-meteo.com/).

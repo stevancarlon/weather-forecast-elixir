@@ -7,6 +7,16 @@ defmodule WeatherForecast.Router do
   plug(:match)
   plug(:dispatch)
 
+  get "/" do
+    json(conn, 200, %{
+      name: "Weather Forecast API",
+      endpoints: %{
+        weather: "/api/weather",
+        health: "/health"
+      }
+    })
+  end
+
   get "/health" do
     json(conn, 200, %{status: "ok"})
   end

@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: weather-forecast-elixir
+    runtime: docker
+    plan: free
+    region: virginia
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    autoDeployTrigger: checksPass
+    envVars:
+      - key: START_SERVER
+        value: "true"
