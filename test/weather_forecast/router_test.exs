@@ -60,6 +60,7 @@ defmodule WeatherForecast.RouterTest do
     body = Jason.decode!(conn.resp_body)
 
     assert conn.status == 200
+    assert Plug.Conn.get_resp_header(conn, "access-control-allow-origin") == ["*"]
     assert length(body["data"]) == 3
 
     assert %{

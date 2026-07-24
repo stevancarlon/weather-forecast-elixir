@@ -4,6 +4,7 @@ defmodule WeatherForecast.Router do
   use Plug.Router
 
   plug(Plug.RequestId)
+  plug(:allow_browser_clients)
   plug(:match)
   plug(:dispatch)
 
@@ -42,6 +43,10 @@ defmodule WeatherForecast.Router do
     conn
     |> put_resp_content_type("application/json")
     |> send_resp(status, Jason.encode!(body))
+  end
+
+  defp allow_browser_clients(conn, _opts) do
+    put_resp_header(conn, "access-control-allow-origin", "*")
   end
 
   defp serialize_error(%{city: city, reason: reason}) do
