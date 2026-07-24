@@ -42,3 +42,23 @@ jobs:
 
       - name: Build production image
         run: docker build --tag weather-forecast-elixir:ci .
+
+  deploy:
+    name: Deploy to Vercel
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://weather-forecast-elixir.vercel.app
+
+    steps:
+      - name: Trigger production deployment
+        env:
+          VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          curl \
+            --fail-with-body \
+            --retry 3 \
+            --request POST \
+            "$VERCEL_DEPLOY_HOOK"

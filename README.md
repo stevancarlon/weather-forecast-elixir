@@ -127,7 +127,9 @@ The API is deployed as a container-backed Vercel Function:
 The repository's multi-stage production `Dockerfile` builds a self-contained
 Elixir release and runs it as an unprivileged user. `vercel.json` points the
 container service at that same image definition, avoiding platform-specific
-application code.
+application code. Pushes to `main` deploy automatically only after the GitHub
+Actions formatting, compilation, lint, test, coverage, and production-image
+checks pass.
 
 To validate the production image locally:
 
