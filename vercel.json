@@ -1,0 +1,17 @@
+{
+  "services": {
+    "weather-forecast-elixir": {
+      "root": ".",
+      "entrypoint": "Dockerfile"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": {
+        "type": "service",
+        "service": "weather-forecast-elixir"
+      }
+    }
+  ]
+}

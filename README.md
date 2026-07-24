@@ -117,13 +117,17 @@ The HTTP server is disabled by default so it cannot interfere with the required
 terminal command (for example, when port 4000 is already occupied). Setting
 `START_SERVER=true` enables only the optional Postman interface.
 
-## Deploy to Render
+## Live API
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/stevancarlon/weather-forecast-elixir)
+The API is deployed as a container-backed Vercel Function:
 
-The repository includes a multi-stage production `Dockerfile` and a
-`render.yaml` Blueprint. Render builds a self-contained Elixir release, checks
-`GET /health`, and deploys updates only after GitHub CI succeeds.
+- [`GET /api/weather`](https://weather-forecast-elixir.vercel.app/api/weather)
+- [`GET /health`](https://weather-forecast-elixir.vercel.app/health)
+
+The repository's multi-stage production `Dockerfile` builds a self-contained
+Elixir release and runs it as an unprivileged user. `vercel.json` points the
+container service at that same image definition, avoiding platform-specific
+application code.
 
 To validate the production image locally:
 

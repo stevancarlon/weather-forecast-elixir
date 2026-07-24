@@ -1,0 +1,8 @@
+/.elixir_ls/
+/_build/
+/cover/
+/deps/
+/doc/
+/tmp/
+/Teste Elixir (2) (2).pdf
+erl_crash.dump

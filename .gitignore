@@ -30,3 +30,6 @@ weather_forecast-*.tar
 
 # Source material is not part of the public deliverable.
 /Teste Elixir (2) (2).pdf
+
+# Local Vercel project metadata.
+/.vercel/
