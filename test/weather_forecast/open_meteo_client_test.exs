@@ -9,6 +9,10 @@ defmodule WeatherForecast.OpenMeteoClientTest do
     Req.Test.expect(OpenMeteoClient, fn conn ->
       conn = Plug.Conn.fetch_query_params(conn)
 
+      assert Plug.Conn.get_req_header(conn, "user-agent") == [
+               "weather-forecast-elixir/0.1.0 (+https://github.com/stevancarlon/weather-forecast-elixir)"
+             ]
+
       assert conn.query_params == %{
                "daily" => "temperature_2m_max",
                "forecast_days" => "6",

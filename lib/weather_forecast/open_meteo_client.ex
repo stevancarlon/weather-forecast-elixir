@@ -8,6 +8,10 @@ defmodule WeatherForecast.OpenMeteoClient do
   @impl true
   def fetch_daily_max(city) do
     options = [
+      headers: [
+        {"user-agent",
+         "weather-forecast-elixir/0.1.0 (+https://github.com/stevancarlon/weather-forecast-elixir)"}
+      ],
       params: [
         latitude: city.latitude,
         longitude: city.longitude,
