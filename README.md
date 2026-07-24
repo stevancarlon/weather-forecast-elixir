@@ -124,6 +124,11 @@ The API is deployed as a container-backed Vercel Function:
 - [`GET /api/weather`](https://weather-forecast-elixir.vercel.app/api/weather)
 - [`GET /health`](https://weather-forecast-elixir.vercel.app/health)
 
+An optional
+[interactive React demo](https://forecast-parallel.stevancccampos.chatgpt.site)
+consumes this API and visualizes the calculated results. The demo is hosted
+separately and is not part of the challenge repository or required solution.
+
 The repository's multi-stage production `Dockerfile` builds a self-contained
 Elixir release and runs it as an unprivileged user. `vercel.json` points the
 container service at that same image definition, avoiding platform-specific
