@@ -1,13 +1,21 @@
 # Weather Forecast
 
+## Interactive demo
+
+**[Open the live React demo →](https://forecast-parallel.vercel.app)**
+
+[![Forecast Parallel interface showing the three city results](docs/forecast-parallel-preview.png)](https://forecast-parallel.vercel.app)
+
+The separately hosted React interface consumes the deployed Elixir API and
+visualizes the calculated results. Click the preview to open it.
+
 Elixir solution for the Open-Meteo technical challenge. It concurrently fetches
 the next six days of maximum temperatures for São Paulo, Belo Horizonte, and
 Curitiba, then calculates each city's average.
 
 The required terminal application is the primary interface. A small HTTP API is
-also included so the same Elixir service can be tested with Postman and later
-consumed by a browser interface. This is a plain Mix application—Phoenix is not
-used.
+also included so the same Elixir service can be tested with Postman and consumed
+by the browser interface. This is a plain Mix application—Phoenix is not used.
 
 ## Requirements
 
@@ -124,10 +132,8 @@ The API is deployed as a container-backed Vercel Function:
 - [`GET /api/weather`](https://weather-forecast-elixir.vercel.app/api/weather)
 - [`GET /health`](https://weather-forecast-elixir.vercel.app/health)
 
-An optional
-[interactive React demo](https://forecast-parallel.vercel.app)
-consumes this API and visualizes the calculated results. The demo is hosted
-separately and is not part of the challenge repository or required solution.
+The interactive demo shown at the top is hosted separately and is not part of
+the challenge repository or required backend solution.
 
 The repository's multi-stage production `Dockerfile` builds a self-contained
 Elixir release and runs it as an unprivileged user. `vercel.json` points the
